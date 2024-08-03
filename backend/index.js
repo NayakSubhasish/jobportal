@@ -14,14 +14,14 @@ const app = express();
 
   
 const corsOptions = {
-    origin: process.env.CORS_ORIGIN || 'http://localhost:3000', // Replace with your frontend URL
+    origin: process.env.CORS_ORIGIN || 'http://localhost:8000', // Replace with your frontend URL
     credentials: true, // Allow cookies and other credentials
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allow all methods or specify as needed
     allowedHeaders: ['Content-Type', 'Authorization'], // Allow specific headers
     optionsSuccessStatus: 200,
 };
   
-app.use(cors(corsOptions));
+app.use(cors());
 
 // middleware
 app.use(express.json());
