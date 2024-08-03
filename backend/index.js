@@ -12,6 +12,13 @@ dotenv.config({});
 
 const app = express();
 
+  
+app.use(cors({
+    origin: process.env.CORS_ORIGIN || 'http://localhost:8000',
+    credentials: true, // Allow credentials if needed
+    optionsSuccessStatus: 200,
+  }));
+
 // middleware
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
