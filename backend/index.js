@@ -40,7 +40,7 @@ app.use("/api/v1/job", jobRoute);
 app.use("/api/v1/application", applicationRoute);
 
 app.get('/', (req, res) => {
-  res.json({ message: "Hello" });
+  res.json({ message: process.env.PORT });
 });
 
 app.listen(PORT,()=>{
