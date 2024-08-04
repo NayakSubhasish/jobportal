@@ -12,27 +12,27 @@ dotenv.config({});
 
 const app = express();
 
-  
-const corsOptions = {
-    origin: process.env.CORS_ORIGIN, // Replace with your frontend URL
-    credentials: true, // Allow cookies and other credentials
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allow all methods or specify as needed
-};
- 
-app.use(cors(corsOptions));
-
 // middleware
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
+const corsOptions = {
+    origin:process.env.CORS_ORIGIN,
+    credentials:true
+}
+
+app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 3000;
+
 
 // api's
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/company", companyRoute);
 app.use("/api/v1/job", jobRoute);
 app.use("/api/v1/application", applicationRoute);
+
+
 
 app.listen(PORT,()=>{
     connectDB();
