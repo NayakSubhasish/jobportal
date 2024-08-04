@@ -24,6 +24,8 @@ app.use(cors(corsOptions));
 
 connectDB();
 
+app.options('*', cors(corsOptions));
+
 // middleware
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
