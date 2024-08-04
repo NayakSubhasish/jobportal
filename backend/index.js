@@ -43,7 +43,10 @@ app.get('/api/v1/port', (req, res) => {
   res.json({ message: process.env.PORT });
 });
 
-app.listen(PORT,()=>{
-    connectDB();
+connectDB().then(() => {
+  app.listen(PORT, () => {
     console.log(`Server running at port ${PORT}`);
-})
+  });
+}).catch(error => {
+  console.error('Database connection failed:', error.message);
+});
