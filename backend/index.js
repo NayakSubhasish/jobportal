@@ -21,18 +21,12 @@ const corsOptions = {
  
 app.use(cors(corsOptions));
 
-
-connectDB();
-
-
 // middleware
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 
-
 const PORT = process.env.PORT || 3000;
-
 
 // api's
 app.use("/api/v1/user", userRoute);
@@ -40,10 +34,7 @@ app.use("/api/v1/company", companyRoute);
 app.use("/api/v1/job", jobRoute);
 app.use("/api/v1/application", applicationRoute);
 
-app.get('/api/v1/port', (req, res) => {
-  res.json({ message: process.env.PORT });
-});
-
-app.listen(PORT, () => {
-  console.log(`Server running at port ${PORT}`);
-});
+app.listen(PORT,()=>{
+    connectDB();
+    console.log(`Server running at port ${PORT}`);
+})
