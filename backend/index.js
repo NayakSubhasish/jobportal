@@ -14,7 +14,7 @@ const app = express();
 
   
 const corsOptions = {
-    origin: '*', // Replace with your frontend URL
+    origin: process.env.CORS_ORIGIN, // Replace with your frontend URL
     credentials: true, // Allow cookies and other credentials
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allow all methods or specify as needed
 };
