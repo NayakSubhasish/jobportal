@@ -14,12 +14,19 @@ const app = express();
 
   
 const corsOptions = {
-    origin: process.env.CORS_ORIGIN || 'http://localhost:8000', // Replace with your frontend URL
+    origin: process.env.CORS_ORIGIN || 'http://localhost:5173', // Replace with your frontend URL
     credentials: true, // Allow cookies and other credentials
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allow all methods or specify as needed
 };
-  
+ 
 app.use(cors(corsOptions));
+
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", process.env.CORS_ORIGIN );
+    next();
+});
+
+
 
 // middleware
 app.use(express.json());
