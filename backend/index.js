@@ -43,7 +43,9 @@ app.use("/api/v1/company", companyRoute);
 app.use("/api/v1/job", jobRoute);
 app.use("/api/v1/application", applicationRoute);
 
-
+app.get('/', (req, res) => {
+  res.json({ message: "Hello" });
+});
 
 app.listen(PORT,()=>{
     connectDB();
