@@ -13,7 +13,9 @@
       "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
       "headers": {
         "Access-Control-Allow-Origin": "https://jobportal-5zeh.vercel.app",
-        "Access-Control-Allow-Credentials" : "true"
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization", // Add other headers if necessary
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS"
       }
     }
   ]
